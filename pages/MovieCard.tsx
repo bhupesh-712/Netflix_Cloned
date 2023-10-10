@@ -14,11 +14,7 @@ interface MovieCardProps {
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
   const { openModal } = useInfoModalStore();
-  if (!data || !data.id) {
-    // Handle the case where 'data' is undefined or 'id' is missing
-    return null; // Or display an error message, placeholder, or handle it in another way
-  }
-  const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
+  const redirectToWatch = useCallback(() => {if(data && data.id){router.push(`/watch/${data.id}`)}}, [router, data]);
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
