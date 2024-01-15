@@ -15,6 +15,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const router = useRouter();
   const { openModal } = useInfoModalStore();
   const redirectToWatch = useCallback(() => {if(data && data.id){router.push(`/watch/${data.id}`)}}, [router, data]);
+  if(!data)return(null)
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
