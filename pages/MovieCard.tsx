@@ -18,7 +18,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   if(!data)return(null)
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
-      <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+      <img src={data.thumbnailUrl} alt="Movie" draggable={false} className="
         cursor-pointer
         object-cover
         transition
@@ -48,7 +48,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
       ">
-        <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+        <video src={data.videoUrl} autoPlay muted poster={data.thumbnailUrl} draggable={false} className="
           cursor-pointer
           object-cover
           transition
